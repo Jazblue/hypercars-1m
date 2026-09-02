@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jazblue.github.io/hypercars-1m/sitemap.xml
