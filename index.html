@@ -21,7 +21,7 @@
   }
   </script>
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://countapi.mileshilliard.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; frame-ancestors 'none';">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
@@ -483,23 +483,11 @@
   <footer>
     <p>Built by Jazblue · Images via Wikimedia Commons (CC-BY / CC-BY-SA)</p>
     <p style="margin-top:8px;">*Top speeds marked * are manufacturer claims or closed-circuit figures.</p>
-    <p style="margin-top:14px;color:#666;font-size:13px;" id="visitor-count">Loading visitor count...</p>
+    <p style="margin-top:14px;color:#666;font-size:13px;">Visitors: <span id="visitor-count">loading…</span></p>
+    <noscript><span style="color:#666;font-size:12px;">(enable JavaScript to see live count)</span></noscript>
   </footer>
 
-  <script>
-    (function() {
-      try {
-        const key = 'hypercars_visits';
-        const count = parseInt(localStorage.getItem(key) || '0', 10) + 1;
-        localStorage.setItem(key, String(count));
-        const el = document.getElementById('visitor-count');
-        if (el) el.textContent = 'Visitor count: ' + count.toLocaleString();
-      } catch (e) {
-        var el = document.getElementById('visitor-count');
-        if (el) el.textContent = 'Visitor count: unavailable';
-      }
-    })();
-  </script>
+  <script src="counter.js"></script>
 
 </body>
 </html>
